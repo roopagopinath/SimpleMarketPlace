@@ -1,0 +1,639 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://MarketPlace.Question2.lab2" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://MarketPlace.Question2.lab2" xmlns:intf="http://MarketPlace.Question2.lab2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://MarketPlace.Question2.lab2" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="updateShoppingCart">
+    <complexType>
+     <sequence>
+      <element name="buyerID" type="xsd:string"/>
+      <element name="sellerID" type="xsd:string"/>
+      <element name="itemID" type="xsd:int"/>
+      <element name="quantity" type="xsd:int"/>
+      <element name="addToCart" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateShoppingCartResponse">
+    <complexType>
+     <sequence>
+      <element name="updateShoppingCartReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="displayAdvertisement">
+    <complexType>
+     <sequence>
+      <element name="buyerID" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="displayAdvertisementResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="displayAdvertisementReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="storeAdvertisement">
+    <complexType>
+     <sequence>
+      <element name="itemName" type="xsd:string"/>
+      <element name="itemDesc" type="xsd:string"/>
+      <element name="price" type="xsd:float"/>
+      <element name="quantity" type="xsd:int"/>
+      <element name="userID" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="storeAdvertisementResponse">
+    <complexType>
+     <sequence>
+      <element name="storeAdvertisementReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="signOut">
+    <complexType>
+     <sequence>
+      <element name="userID" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="signOutResponse">
+    <complexType/>
+   </element>
+   <element name="buyProduct">
+    <complexType>
+     <sequence>
+      <element name="buyerID" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="buyProductResponse">
+    <complexType>
+     <sequence>
+      <element name="buyProductReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="buy">
+    <complexType>
+     <sequence>
+      <element name="buyerID" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="buyResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="buyReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="sell">
+    <complexType>
+     <sequence>
+      <element name="sellerID" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="sellResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="sellReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="viewCart">
+    <complexType>
+     <sequence>
+      <element name="buyerID" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="viewCartResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="viewCartReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="signUp">
+    <complexType>
+     <sequence>
+      <element name="first_name" type="xsd:string"/>
+      <element name="last_name" type="xsd:string"/>
+      <element name="emailID" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+      <element name="userID" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="signUpResponse">
+    <complexType>
+     <sequence>
+      <element name="signUpReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="signIn">
+    <complexType>
+     <sequence>
+      <element name="userID" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="signInResponse">
+    <complexType>
+     <sequence>
+      <element name="signInReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="signUpRequest">
+
+      <wsdl:part element="impl:signUp" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="signInResponse">
+
+      <wsdl:part element="impl:signInResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="storeAdvertisementResponse">
+
+      <wsdl:part element="impl:storeAdvertisementResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="buyProductRequest">
+
+      <wsdl:part element="impl:buyProduct" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="signOutResponse">
+
+      <wsdl:part element="impl:signOutResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="signUpResponse">
+
+      <wsdl:part element="impl:signUpResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateShoppingCartResponse">
+
+      <wsdl:part element="impl:updateShoppingCartResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="signOutRequest">
+
+      <wsdl:part element="impl:signOut" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="viewCartRequest">
+
+      <wsdl:part element="impl:viewCart" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="sellRequest">
+
+      <wsdl:part element="impl:sell" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="sellResponse">
+
+      <wsdl:part element="impl:sellResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="buyProductResponse">
+
+      <wsdl:part element="impl:buyProductResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="buyResponse">
+
+      <wsdl:part element="impl:buyResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateShoppingCartRequest">
+
+      <wsdl:part element="impl:updateShoppingCart" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="buyRequest">
+
+      <wsdl:part element="impl:buy" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="viewCartResponse">
+
+      <wsdl:part element="impl:viewCartResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="displayAdvertisementResponse">
+
+      <wsdl:part element="impl:displayAdvertisementResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="signInRequest">
+
+      <wsdl:part element="impl:signIn" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="displayAdvertisementRequest">
+
+      <wsdl:part element="impl:displayAdvertisement" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="storeAdvertisementRequest">
+
+      <wsdl:part element="impl:storeAdvertisement" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="MarketPlace">
+
+      <wsdl:operation name="updateShoppingCart">
+
+         <wsdl:input message="impl:updateShoppingCartRequest" name="updateShoppingCartRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:updateShoppingCartResponse" name="updateShoppingCartResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="displayAdvertisement">
+
+         <wsdl:input message="impl:displayAdvertisementRequest" name="displayAdvertisementRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:displayAdvertisementResponse" name="displayAdvertisementResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="storeAdvertisement">
+
+         <wsdl:input message="impl:storeAdvertisementRequest" name="storeAdvertisementRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:storeAdvertisementResponse" name="storeAdvertisementResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="signOut">
+
+         <wsdl:input message="impl:signOutRequest" name="signOutRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:signOutResponse" name="signOutResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="buyProduct">
+
+         <wsdl:input message="impl:buyProductRequest" name="buyProductRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:buyProductResponse" name="buyProductResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="buy">
+
+         <wsdl:input message="impl:buyRequest" name="buyRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:buyResponse" name="buyResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="sell">
+
+         <wsdl:input message="impl:sellRequest" name="sellRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:sellResponse" name="sellResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="viewCart">
+
+         <wsdl:input message="impl:viewCartRequest" name="viewCartRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:viewCartResponse" name="viewCartResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="signUp">
+
+         <wsdl:input message="impl:signUpRequest" name="signUpRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:signUpResponse" name="signUpResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="signIn">
+
+         <wsdl:input message="impl:signInRequest" name="signInRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:signInResponse" name="signInResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="MarketPlaceSoapBinding" type="impl:MarketPlace">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="updateShoppingCart">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateShoppingCartRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateShoppingCartResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="displayAdvertisement">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="displayAdvertisementRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="displayAdvertisementResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="storeAdvertisement">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="storeAdvertisementRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="storeAdvertisementResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="signOut">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="signOutRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="signOutResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="buyProduct">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="buyProductRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="buyProductResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="buy">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="buyRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="buyResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="sell">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="sellRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="sellResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="viewCart">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="viewCartRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="viewCartResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="signUp">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="signUpRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="signUpResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="signIn">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="signInRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="signInResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="MarketPlaceService">
+
+      <wsdl:port binding="impl:MarketPlaceSoapBinding" name="MarketPlace">
+
+         <wsdlsoap:address location="http://localhost:8080/SimpleMarketPlace/services/MarketPlace"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

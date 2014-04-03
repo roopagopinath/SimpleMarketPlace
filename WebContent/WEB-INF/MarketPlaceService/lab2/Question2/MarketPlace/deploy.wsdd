@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from MarketPlaceService WSDL service -->
+
+  <service name="MarketPlace" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://MarketPlace.Question2.lab2"/>
+      <parameter name="wsdlServiceElement" value="MarketPlaceService"/>
+      <parameter name="schemaQualified" value="http://MarketPlace.Question2.lab2"/>
+      <parameter name="wsdlServicePort" value="MarketPlace"/>
+      <parameter name="className" value="lab2.Question2.MarketPlace.MarketPlace"/>
+      <parameter name="wsdlPortType" value="MarketPlace"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://MarketPlace.Question2.lab2" xmlns:retNS="http://MarketPlace.Question2.lab2" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="updateShoppingCart" qname="operNS:updateShoppingCart" returnQName="retNS:updateShoppingCartReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://MarketPlace.Question2.lab2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:buyerID" type="tns:string"/>
+        <parameter xmlns:pns="http://MarketPlace.Question2.lab2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:sellerID" type="tns:string"/>
+        <parameter xmlns:pns="http://MarketPlace.Question2.lab2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:itemID" type="tns:int"/>
+        <parameter xmlns:pns="http://MarketPlace.Question2.lab2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:quantity" type="tns:int"/>
+        <parameter xmlns:pns="http://MarketPlace.Question2.lab2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:addToCart" type="tns:boolean"/>
+      </operation>
+      <operation xmlns:operNS="http://MarketPlace.Question2.lab2" xmlns:retNS="http://MarketPlace.Question2.lab2" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="displayAdvertisement" qname="operNS:displayAdvertisement" returnQName="retNS:displayAdvertisementReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://MarketPlace.Question2.lab2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:buyerID" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://MarketPlace.Question2.lab2" xmlns:retNS="http://MarketPlace.Question2.lab2" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="storeAdvertisement" qname="operNS:storeAdvertisement" returnQName="retNS:storeAdvertisementReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://MarketPlace.Question2.lab2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:itemName" type="tns:string"/>
+        <parameter xmlns:pns="http://MarketPlace.Question2.lab2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:itemDesc" type="tns:string"/>
+        <parameter xmlns:pns="http://MarketPlace.Question2.lab2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:price" type="tns:float"/>
+        <parameter xmlns:pns="http://MarketPlace.Question2.lab2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:quantity" type="tns:int"/>
+        <parameter xmlns:pns="http://MarketPlace.Question2.lab2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:userID" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://MarketPlace.Question2.lab2" name="signOut" qname="operNS:signOut" soapAction="">
+        <parameter xmlns:pns="http://MarketPlace.Question2.lab2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:userID" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://MarketPlace.Question2.lab2" xmlns:retNS="http://MarketPlace.Question2.lab2" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="buyProduct" qname="operNS:buyProduct" returnQName="retNS:buyProductReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://MarketPlace.Question2.lab2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:buyerID" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://MarketPlace.Question2.lab2" xmlns:retNS="http://MarketPlace.Question2.lab2" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="buy" qname="operNS:buy" returnQName="retNS:buyReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://MarketPlace.Question2.lab2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:buyerID" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://MarketPlace.Question2.lab2" xmlns:retNS="http://MarketPlace.Question2.lab2" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="sell" qname="operNS:sell" returnQName="retNS:sellReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://MarketPlace.Question2.lab2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:sellerID" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://MarketPlace.Question2.lab2" xmlns:retNS="http://MarketPlace.Question2.lab2" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="viewCart" qname="operNS:viewCart" returnQName="retNS:viewCartReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://MarketPlace.Question2.lab2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:buyerID" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://MarketPlace.Question2.lab2" xmlns:retNS="http://MarketPlace.Question2.lab2" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="signUp" qname="operNS:signUp" returnQName="retNS:signUpReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://MarketPlace.Question2.lab2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:first_name" type="tns:string"/>
+        <parameter xmlns:pns="http://MarketPlace.Question2.lab2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:last_name" type="tns:string"/>
+        <parameter xmlns:pns="http://MarketPlace.Question2.lab2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:emailID" type="tns:string"/>
+        <parameter xmlns:pns="http://MarketPlace.Question2.lab2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:password" type="tns:string"/>
+        <parameter xmlns:pns="http://MarketPlace.Question2.lab2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:userID" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://MarketPlace.Question2.lab2" xmlns:retNS="http://MarketPlace.Question2.lab2" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="signIn" qname="operNS:signIn" returnQName="retNS:signInReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://MarketPlace.Question2.lab2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:userID" type="tns:string"/>
+        <parameter xmlns:pns="http://MarketPlace.Question2.lab2" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:password" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="displayAdvertisement signUp sell buy buyProduct signIn storeAdvertisement viewCart signOut updateShoppingCart"/>
+
+  </service>
+</deployment>
